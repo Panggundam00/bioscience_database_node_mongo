@@ -1,13 +1,27 @@
+# FROM node:alpine
+# RUN mkdir -p /usr/src/app
+# WORKDIR /usr/src/app
+
+# COPY ./package.json /usr/src/app/
+
+# RUN npm i
+
+# COPY . /usr/src/app
+
+# EXPOSE 5000
+
+# CMD ["node", "server.js"]
+
 FROM node:alpine
-RUN mkdir -p /usr/src/app
+
 WORKDIR /usr/src/app
 
-COPY ./package.json /usr/src/app/
+COPY package*.json ./
 
-RUN npm i
+RUN npm install
 
-COPY . /usr/src/app
+COPY . .
 
-EXPOSE 5000
+EXPOSE 3000
 
-CMD ["node", "server.js"]
+CMD ["npm", "start"]

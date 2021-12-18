@@ -10,11 +10,20 @@ const Organization = require('./model/organization');
 const Province = require('./model/province');
 const Researcher = require('./model/researcher');
 const SubDistrict = require('./model/subDistrict');
+const { TextEncoder, TextDecoder } = require("util");
 
-mongoose.connect('mongodb://mongo:27018/bio', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+// mongoose.connect('mongodb://mongo:27018/bio', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+
+mongoose
+  .connect(
+    'mongodb://mongo:27017/bio',
+    { useNewUrlParser: true }
+  )
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
 
 const mockOrganizations = [
     {
