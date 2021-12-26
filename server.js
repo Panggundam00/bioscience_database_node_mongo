@@ -19,7 +19,7 @@ const { TextEncoder, TextDecoder } = require("util");
 
 var app = express();
 
-app.use(express.json());
+app.use(express.json({ limit: '50mb'}));
 
 var port = process.env.PORT || 3000;
 app.listen(port, () => {
@@ -28,7 +28,7 @@ app.listen(port, () => {
 
 mongoose
   .connect(
-    'mongodb://mongo:27017/bio',
+    'mongodb://localhost:27017/bio',
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))
@@ -323,10 +323,115 @@ app.delete('/api/subDistricts/:id', async (req, res) => {
 
 //-------------- loadtest ---------------
 
-app.get("/load-test/microoorganisms/:count", async (req, res) => {
-    const { id } = req.params
-    const data = await Microorganism.find({}).limit({ id:id })
+// app.get('/load-test/microoorganisms/:count', async (req, res) => {
+//     const { count } = req.params
+//     console.log(count)
+//     const data = await Microorganism.find({}).limit(count)
+//     res.status(200).send(data);
+// });
+
+app.get('/load-test/microoorganisms/1', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(1)
     res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/100', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(100)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/200', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(200)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/300', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(300)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/400', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(400)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/500', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(500)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/1000', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(1000)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/5000', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(5000)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/10000', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(10000)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/20000', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(20000)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/100000', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(100000)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/1000000', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(1000000)
+    res.status(200).send(data);
+});
+
+app.post('/load-test/microorganisms-add-test', async (req, res) => {
+    const payload = req.body
+    // const data = new Microorganism(payload)
+    // await data.save()
+    await payload.forEach(element => {
+        console.log(element)
+        console.log("-----")
+    });
+    res.status(201).send(req.body)
+});
+
+app.post('/load-test/microorganisms', async (req, res) => {
+    const payload = req.body
+    await payload.forEach(element => {
+        const data = new Microorganism(element)
+        data.save()
+    });
+    res.status(201).send(req.body)
 });
 
 
