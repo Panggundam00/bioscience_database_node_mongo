@@ -2,6 +2,7 @@ const mongoose = require('mongoose') ;
 const Schema = mongoose.Schema ;
 
 const microorganismSchema = new Schema({
+    //General Information
     id: Number,
     ku_id: String,
     other_microbial_code: String,

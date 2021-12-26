@@ -17,6 +17,15 @@ const { TextEncoder, TextDecoder } = require("util");
 //     useUnifiedTopology: true
 // });
 
+var app = express();
+
+app.use(express.json());
+
+var port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log("[success] task 1 : listening on port " + port);
+});
+
 mongoose
   .connect(
     'mongodb://mongo:27017/bio',
@@ -36,16 +45,8 @@ const mockOrganizations = [
     }
 ]
 
-var app = express();
-
-app.use(express.json());
-
-var port = process.env.PORT || 5000;
-app.listen(port, () => {
-    console.log("[success] task 1 : listening on port " + port);
-});
-
 app.get("/", (req, res) => {
+    console.log("api: /");
     res.status(200).send("bio database mongodb api");
 });
 
@@ -317,6 +318,15 @@ app.delete('/api/subDistricts/:id', async (req, res) => {
     const { id } = req.params
     await SubDistrict.findOneAndDelete({ id:id })
     res.status(204).send("deleted")
+});
+
+
+//-------------- loadtest ---------------
+
+app.get("/load-test/microoorganisms/:count", async (req, res) => {
+    const { id } = req.params
+    const data = await Microorganism.find({}).limit({ id:id })
+    res.status(200).send(data);
 });
 
 
