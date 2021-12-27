@@ -323,98 +323,98 @@ app.delete('/api/subDistricts/:id', async (req, res) => {
 
 //-------------- loadtest ---------------
 
-// app.get('/load-test/microoorganisms/:count', async (req, res) => {
+// app.get('/load-test/microorganisms/:count', async (req, res) => {
 //     const { count } = req.params
 //     console.log(count)
 //     const data = await Microorganism.find({}).limit(count)
 //     res.status(200).send(data);
 // });
 
-app.get('/load-test/microoorganisms/1', async (req, res) => {
+app.get('/load-test/microorganisms/1', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(1)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/10', async (req, res) => {
+app.get('/load-test/microorganisms/10', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(10)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/100', async (req, res) => {
+app.get('/load-test/microorganisms/100', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(100)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/200', async (req, res) => {
+app.get('/load-test/microorganisms/200', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(200)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/300', async (req, res) => {
+app.get('/load-test/microorganisms/300', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(300)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/400', async (req, res) => {
+app.get('/load-test/microorganisms/400', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(400)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/500', async (req, res) => {
+app.get('/load-test/microorganisms/500', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(500)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/1000', async (req, res) => {
+app.get('/load-test/microorganisms/1000', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(1000)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/5000', async (req, res) => {
+app.get('/load-test/microorganisms/5000', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(5000)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/10000', async (req, res) => {
+app.get('/load-test/microorganisms/10000', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(10000)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/20000', async (req, res) => {
+app.get('/load-test/microorganisms/20000', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(20000)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/100000', async (req, res) => {
+app.get('/load-test/microorganisms/100000', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(100000)
     res.status(200).send(data);
 });
 
-app.get('/load-test/microoorganisms/1000000', async (req, res) => {
+app.get('/load-test/microorganisms/1000000', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(1000000)
