@@ -28,7 +28,7 @@ app.listen(port, () => {
 
 mongoose
   .connect(
-    'mongodb://localhost:27017/bio',
+    'mongodb://mongo:27017/bio',
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))
@@ -334,6 +334,13 @@ app.get('/load-test/microoorganisms/1', async (req, res) => {
     const { count } = req.params
     console.log(count)
     const data = await Microorganism.find({}).limit(1)
+    res.status(200).send(data);
+});
+
+app.get('/load-test/microoorganisms/10', async (req, res) => {
+    const { count } = req.params
+    console.log(count)
+    const data = await Microorganism.find({}).limit(10)
     res.status(200).send(data);
 });
 
